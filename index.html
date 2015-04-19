@@ -6,7 +6,7 @@
     <meta charset="utf-8"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-	<title>MotionJumper</title>
+	<title>MotionJumper_v2</title>
 	
     <script type="text/javascript" src="js/phaser.min.js"></script>
 	<script src="/js/tracking.js"></script>
@@ -43,19 +43,19 @@
     <div class="row">
         <div id="gameCanvasContainer" class="col-md-8">
         </div>
-        <div id="showGesture" class="col-md-4">
+        <div id="video" class="col-md-4">
             
         </div>
     </div>
 </div>
 
 <script type="text/javascript">
-        var displayContainer = document.createElement('div');
-        displayContainer.className = 'showGesture';
-        document.body.appendChild(displayContainer);
+        var msgContainer = document.createElement('div');
+        msgContainer.className = 'showGesture';
+        document.body.appendChild(msgContainer);
 
         gest.options.subscribeWithCallback(function(gesture) {
-            displayContainer.innerHTML = 'Direction of detected gesture: ' + gesture.direction;
+            msgContainer.innerHTML = 'Direction of detected gesture: ' + gesture.direction;
         });
 
         gest.start();
