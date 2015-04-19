@@ -1,0 +1,65 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+    <!-- Not sure if want to make responsive:
+    <meta charset="utf-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+	<title>MotionJumper</title>
+	
+    <script type="text/javascript" src="js/phaser.min.js"></script>
+	<script src="/js/tracking.js"></script>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <!-- Bootstrap JS -->
+    <script src="/js/jquery-1.11.2.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <!-- Custom css -->
+    <link rel="stylesheet" href="/css/custom.css">
+    
+    <!-- include gesture library -->
+    <script src="/js/gest.js"></script>
+
+    <!-- loading gamez -->
+    <script>
+    $.when(
+        $.getScript("/js/game-update.js"),
+        $.getScript("/js/game-create.js"),
+        $.getScript("/js/game-preload.js")
+    ).done(function() {
+            $.getScript("/js/game.js");
+        }
+    );
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        
+    </div>
+    <div class="row">
+        <div id="gameCanvasContainer" class="col-md-8">
+        </div>
+        <div id="showGesture" class="col-md-4">
+            
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+        var displayContainer = document.createElement('div');
+        displayContainer.className = 'showGesture';
+        document.body.appendChild(displayContainer);
+
+        gest.options.subscribeWithCallback(function(gesture) {
+            displayContainer.innerHTML = 'Direction of detected gesture: ' + gesture.direction;
+        });
+
+        gest.start();
+</script>
+
+</body>
+</html>
